@@ -1,0 +1,14 @@
+/decision_tree/*
+/elastic_net/*
+/gaussian_process/*
+/knn/*
+/lasso/*
+/linear_regression/*
+/logistic_regression/*
+/naive_bayes/*
+/polynomial_regression/*
+/random_forest/*
+/ridge/*
+/svr/*
+/resultsCSV/*.csv
+/resultsExcel/*.xlsx
