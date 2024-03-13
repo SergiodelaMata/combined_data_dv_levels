@@ -77,5 +77,5 @@ def save_combination_results_three_categories(metrics):
     del análisis de las predicciones.
     :return:
     """
-    filename = 'resultsCSV/Combinacion_Equipos_Algoritmos_Situacion.csv'
+    filename = 'resultsCSV/Equip_Alg_Sit/Combinacion_Equipos_Algoritmos_Situacion.csv'
     metrics.to_csv(filename, index=False)
