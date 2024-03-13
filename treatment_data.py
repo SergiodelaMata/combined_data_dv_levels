@@ -1,5 +1,6 @@
 import pandas as pd
 import filesCSV as fCSV
+import filesExcel as fExcel
 
 
 def combination_treatment_considering_only_equipments(equip_ids, algorithms, situations):
@@ -20,6 +21,7 @@ def combination_treatment_considering_only_equipments(equip_ids, algorithms, sit
         dataframe = get_all_data_from_equipment(equip_id, algorithms, situations)
         dataframe_aux = average_results_columns_dataframe(dataframe)
         fCSV.save_combination_results_one_category(1, equip_id, dataframe_aux)
+        fExcel.save_combination_results_one_category(1, equip_id, dataframe_aux, None)
 
 
 def get_all_data_from_equipment(equip_id, list_algorithms, list_situations):
@@ -62,6 +64,7 @@ def combination_treatment_considering_only_algorithms(equip_ids, algorithms, sit
         dataframe = get_all_data_from_algorithm(equip_ids, algorithm, situations)
         dataframe_aux = average_results_columns_dataframe(dataframe)
         fCSV.save_combination_results_one_category(2, algorithm, dataframe_aux)
+        fExcel.save_combination_results_one_category(2, algorithm, dataframe_aux, None)
 
 
 def get_all_data_from_algorithm(list_equip_ids, algorithm, list_situations):
@@ -107,6 +110,7 @@ def combination_treatment_considering_only_situations(equip_ids, algorithms, sit
         dataframe = get_all_data_from_situation(equip_ids, algorithms, situation)
         dataframe_aux = average_results_columns_dataframe(dataframe)
         fCSV.save_combination_results_one_category(3, situation_aux, dataframe_aux)
+        fExcel.save_combination_results_one_category(3, situation_aux, dataframe_aux, None)
 
 
 def get_all_data_from_situation(list_equip_ids, list_algorithms, situation):
@@ -151,6 +155,7 @@ def combination_treatment_considering_equipments_algorithms(equip_ids, algorithm
             dataframe = get_all_data_from_equipment_algorithm(equip_id, algorithm, situations)
             dataframe_aux = average_results_columns_dataframe(dataframe)
             fCSV.save_combination_results_two_categories(1, equip_id, algorithm, dataframe_aux)
+            fExcel.save_combination_results_two_categories(1, equip_id, algorithm, dataframe_aux, None)
 
 
 def get_all_data_from_equipment_algorithm(equip_id, algorithm, list_situations):
@@ -195,6 +200,7 @@ def combination_treatment_considering_equipments_situations(equip_ids, algorithm
             dataframe = get_all_data_from_equipment_situation(equip_id, algorithms, situation)
             dataframe_aux = average_results_columns_dataframe(dataframe)
             fCSV.save_combination_results_two_categories(2, equip_id, situation_aux, dataframe_aux)
+            fExcel.save_combination_results_two_categories(2, equip_id, situation_aux, dataframe_aux, None)
 
 
 def get_all_data_from_equipment_situation(equip_id, list_algorithms, situation):
@@ -241,6 +247,7 @@ def combination_treatment_considering_algorithms_situations(equip_ids, algorithm
             dataframe = get_all_data_from_algorithm_situation(equip_ids, algorithm, situation)
             dataframe_aux = average_results_columns_dataframe(dataframe)
             fCSV.save_combination_results_two_categories(3, algorithm, situation_aux, dataframe_aux)
+            fExcel.save_combination_results_two_categories(3, algorithm, situation_aux, dataframe_aux, None)
 
 
 def get_all_data_from_algorithm_situation(list_equip_ids, algorithm, situation):
@@ -279,6 +286,7 @@ def combination_treatment_considering_equipments_algorithms_situations(equip_ids
     dataframe = get_all_data_from_equipments_algorithms_situations(equip_ids, algorithms, situations)
     dataframe_aux = average_results_columns_dataframe(dataframe)
     fCSV.save_combination_results_three_categories(dataframe_aux)
+    fExcel.save_combination_results_three_categories(dataframe_aux, None)
 
 
 def get_all_data_from_equipments_algorithms_situations(list_equip_ids, list_algorithms, list_situations):

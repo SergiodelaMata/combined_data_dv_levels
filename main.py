@@ -11,12 +11,12 @@ def main():
     # algorithms = ['decision_tree', 'knn']
     situations = ['DAYOFWEEK_HOUR', 'DAYOFMONTH_HOUR', 'WEEKEND_HOUR', 'HOLIDAY_HOUR']
 
-    # tData.combination_treatment_considering_only_equipments(equip_ids, algorithms, [0, 1, 2, 3])
-    # tData.combination_treatment_considering_only_algorithms(equip_ids, algorithms, [0, 1, 2, 3])
-    # tData.combination_treatment_considering_only_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
-    # tData.combination_treatment_considering_equipments_algorithms(equip_ids, algorithms, [0, 1, 2, 3])
-    # tData.combination_treatment_considering_equipments_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
-    # tData.combination_treatment_considering_algorithms_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
+    tData.combination_treatment_considering_only_equipments(equip_ids, algorithms, [0, 1, 2, 3])
+    tData.combination_treatment_considering_only_algorithms(equip_ids, algorithms, [0, 1, 2, 3])
+    tData.combination_treatment_considering_only_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
+    tData.combination_treatment_considering_equipments_algorithms(equip_ids, algorithms, [0, 1, 2, 3])
+    tData.combination_treatment_considering_equipments_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
+    tData.combination_treatment_considering_algorithms_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
     tData.combination_treatment_considering_equipments_algorithms_situations(equip_ids, algorithms, [0, 1, 2, 3])
 
 
