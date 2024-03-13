@@ -264,6 +264,47 @@ def get_all_data_from_algorithm_situation(list_equip_ids, algorithm, situation):
     return dataframe
 
 
+def combination_treatment_considering_equipments_algorithms_situations(equip_ids, algorithms, situations):
+    """
+    list, list, list --> None
+    OBJ: EN: Make the combination of the results from all the predictions and save the results in CSV files.
+    ES: Hacer la combinación de los resultados de todas las predicciones y guardar los resultados en archivos CSV.
+    :param equip_ids: EN: List of the IDs of the equipments. ES: Lista de los IDs de los equipos.
+    :param algorithms: EN: List of the algorithms used to make the predictions. ES: Lista de los algoritmos usados
+    para hacer las predicciones.
+    :param situations: EN: List of the situations used to make the predictions. ES: Lista de las situaciones usadas
+    para hacer las predicciones.
+    :return:
+    """
+    dataframe = get_all_data_from_equipments_algorithms_situations(equip_ids, algorithms, situations)
+    dataframe_aux = average_results_columns_dataframe(dataframe)
+    fCSV.save_combination_results_three_categories(dataframe_aux)
+
+
+def get_all_data_from_equipments_algorithms_situations(list_equip_ids, list_algorithms, list_situations):
+    """
+    list, list, list --> Dataframe
+    OBJ: EN: Get all the data from different equipments with different algorithms and different situations.
+    ES: Obtener todos los datos de diferentes equipos con diferentes algoritmos y diferentes situaciones.
+    :param list_equip_ids: EN: List of the IDs of the equipments. ES: Lista de los IDs de los equipos.
+    :param list_algorithms: EN: List of the algorithms used to make the predictions. ES: Lista de los algoritmos usados
+    para hacer las predicciones.
+    :param list_situations: EN: List of the situations used to make the predictions. ES: Lista de las situaciones usadas
+    para hacer las predicciones.
+    :return: EN: Dataframe with the data from the equipments. ES: Dataframe con los datos de los equipos.
+    """
+    dataframe = pd.DataFrame()
+    for equip_id in list_equip_ids:
+        for algorithm in list_algorithms:
+            for situation in list_situations:
+                dataframe_temp = fCSV.get_data_equip_algorithm_analysis(equip_id, algorithm, situation)
+                dataframe = pd.concat([dataframe, dataframe_temp], axis=0)
+    # EN: Update the index of the dataframe.
+    # ES: Actualizar el índice del dataframe.
+    dataframe = dataframe.reset_index(drop=True)
+    return dataframe
+
+
 def average_results_columns_dataframe(dataframe):
     """
     Dataframe --> Dataframe

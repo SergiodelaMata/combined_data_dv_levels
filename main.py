@@ -16,7 +16,8 @@ def main():
     # tData.combination_treatment_considering_only_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
     # tData.combination_treatment_considering_equipments_algorithms(equip_ids, algorithms, [0, 1, 2, 3])
     # tData.combination_treatment_considering_equipments_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
-    tData.combination_treatment_considering_algorithms_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
+    # tData.combination_treatment_considering_algorithms_situations(equip_ids, algorithms, [0, 1, 2, 3], situations)
+    tData.combination_treatment_considering_equipments_algorithms_situations(equip_ids, algorithms, [0, 1, 2, 3])
 
 
     """for equip_id in equip_ids:
